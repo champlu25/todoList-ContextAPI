@@ -1,0 +1,56 @@
+.todosContainer {
+  border: 2px solid rgba(176, 132, 247, 0.389);
+  padding: 4px;
+  max-width: 550px;
+  margin: 10px auto;
+  position: relative;
+}
+
+.headerContent {
+  margin-bottom: 30px;
+}
+
+.title {
+  position: relative;
+  left: 230px;
+  font-size: 25px;
+  color: rgb(60, 131, 238);
+}
+
+.todoWrapper {
+  list-style: none;
+  margin-bottom: 12px;
+  font-size: 18px;
+  display: flex;
+  gap: 6px;
+  border-bottom: 1px solid rgb(197, 172, 172);
+}
+
+.btnAdd {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 15%;
+  margin-top: 8px;
+  position: absolute;
+  right: 10px;
+  top: -1px;
+  background-color: rgb(159, 191, 250);
+}
+
+.btnAdd:hover {
+  background-color: rgb(115, 157, 230);
+  transition: 0.2s;
+}
+
+.deleteTodoBtn {
+  padding: 0px;
+  border-radius: 15%;
+  background-color: #ffffff;
+  position: absolute;
+  right: 10px;
+}
+
+.deleteTodoBtn:hover {
+  background-color: rgba(238, 231, 231, 0.904);
+  transition: 0.2s;
+}
