@@ -4,6 +4,7 @@ import styles from "./app.module.css";
 function App() {
   const [todos, setTodos] = useState([]);
   const [refreshTodosFlag, setRefreshTodosFlag] = useState(false);
+  const [value, setValue] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:3005/todos")
@@ -18,7 +19,7 @@ function App() {
     if (userTodo !== "" && userTodo !== null) {
       fetch("http://localhost:3005/todos", {
         method: "POST",
-        headers: { "Content-Type": "application/json;charset=utf-8" },
+        headers: { "Contentgjr-Type": "application/json;charset=utf-8" },
         body: JSON.stringify({
           content: userTodo,
         }),
@@ -44,17 +45,28 @@ function App() {
   };
 
   const edtiTodo = (id) => {
-    fetch(`http://localhost:3005/todos/${id}`, {
-      method: "PUT",
-      headers: { "Content-Type": "application/json;charset=utf-8" },
-      body: JSON.stringify({
-        content: 17900,
-      }),
-    })
-      .then((rawResponce) => rawResponce.json())
-      .then((responce) => console.log(responce))
-      .finally(() => setRefreshTodosFlag(!refreshTodosFlag));
+    const userTodo = prompt("Введите текст");
+    if (userTodo !== "" && userTodo !== null) {
+      fetch(`http://localhost:3005/todos/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json;charset=utf-8" },
+        body: JSON.stringify({
+          content: userTodo,
+        }),
+      })
+        .then((rawResponce) => rawResponce.json())
+        .then((responce) => console.log(responce))
+        .finally(() => setRefreshTodosFlag(!refreshTodosFlag));
+    }
   };
+
+  // const findTodo = () => {
+  //   for (i = 0; i < todos.length(); i++) {
+  //     if (value.includes(todos[i].content)) {
+  //       console.log("Привет");
+  //     }
+  //   }
+  // };
 
   return (
     <>
@@ -64,8 +76,8 @@ function App() {
           <button className={styles.btnAdd} onClick={addTodo}>
             🞢
           </button>
-        </div>
-
+          {/* <input value={value} onChange={findTodo} />
+        </div> */}
         {todos.map(({ id, content }) => (
           <li className={styles.todoWrapper} key={id}>
             <input type="checkbox" />
@@ -75,6 +87,14 @@ function App() {
               className={styles.deleteTodoBtn}
             >
               ❌
+            </button>
+            <button
+              className={styles.editBtn}
+              onClick={() => {
+                edtiTodo(id);
+              }}
+            >
+              &#x1F589;
             </button>
           </li>
         ))}
