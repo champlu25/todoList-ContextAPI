@@ -28,12 +28,12 @@
 
 .btnAdd {
   border: none;
-  padding: 5px 10px;
+  padding: 6px 10px;
   border-radius: 15%;
   margin-top: 8px;
   position: absolute;
   right: 10px;
-  top: -1px;
+  top: 2px;
   background-color: rgb(159, 191, 250);
 }
 
@@ -65,5 +65,28 @@
   padding: 2px;
   border-radius: 10%;
   background-color: rgba(238, 231, 231, 0.904);
+  transition: 0.2s;
+}
+
+.findTodoInput {
+  width: 300px;
+  margin-left: 600px;
+}
+
+.findTodoLabel {
+  color: rgb(101, 121, 189);
+  font-size: 20px;
+  margin-left: 600px;
+}
+
+.alphabedBtn {
+  padding: 5px;
+  background-color: #b3c5c5;
+  border-radius: 15%;
+  margin-left: 365px;
+}
+
+.alphabedBtn:hover {
+  background-color: rgb(165, 156, 177);
   transition: 0.2s;
 }
