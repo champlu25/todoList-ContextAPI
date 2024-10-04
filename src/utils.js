@@ -1,6 +1,6 @@
-export const alphabedSort = (todos, setTodos) => {
+export const alphabedSort = (todos, dispatch) => {
   const sortedTodos = [...todos].sort((a, b) =>
     a.content.localeCompare(b.content)
   );
-  setTodos(sortedTodos);
+  dispatch({ type: "SET_TODOS", payload: sortedTodos });
 };
